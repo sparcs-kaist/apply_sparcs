@@ -1,0 +1,8 @@
+/django_key
+/.idea
+/__pycache__
+*.py[cod]
+*.sqlite3
+bin/
+lib/
+include/
