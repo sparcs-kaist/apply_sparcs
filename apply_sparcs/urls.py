@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from apply_sparcs import views
 urlpatterns = [
-    url(r'^$', views.home),
+    url(r'^$', views.init),
     url(r'^admin/', admin.site.urls),
     url(r'^session/', include('apps.session.urls')),
     url(r'^apply/', include('apps.apply.urls')),

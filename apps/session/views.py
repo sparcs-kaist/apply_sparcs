@@ -14,15 +14,38 @@ import random
 
 sso_client = Client(settings.SSO_ID, settings.SSO_KEY, is_beta=False)
 
+
+def test_login(request):
+    user_list = User.objects.filter(username='1')
+    if len(user_list) == 0:
+        user = User.objects.create_user(username='1',
+                                        email='test@kaist.ac.kr',
+                                        password=str(random.getrandbits(32)),
+                                        first_name='duck',
+                                        last_name='duck')
+        user.save()
+        UserProfile.objects.create(user=user,
+                                   sso_uid='1')
+    else:
+        user = user_list[0]
+
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+
+    auth_login(request, user)
+    nexturl = request.session.pop('next', '/')
+    print(request.user.is_authenticated)
+    return redirect(nexturl)
+
 # /session/login/
 def login(request):
     if request.user.is_authenticated():
-        return redirect('/')
+        return redirect('/apply')
 
-    request.session['next'] = request.META.get('HTTP_REFERER', '/')
+    request.session['next'] = request.GET.get('next', '/')
 
     login_url, state = sso_client.get_login_params()
     request.session['sso_state'] = state
+
     return redirect(login_url)
 
 
