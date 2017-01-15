@@ -38,7 +38,7 @@ def test_login(request):
 
 # /session/login/
 def login(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect('/apply')
 
     request.session['next'] = request.GET.get('next', '/')
@@ -81,7 +81,7 @@ def callback(request):
 
 
 def logout(request):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return redirect('/')
 
     auth_logout(request)
