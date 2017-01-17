@@ -19,5 +19,4 @@ from . import views
 urlpatterns = [
     url(r'(?P<path>.*)\.(?P<ext>.*)$', views.simple),
     url(r'(?P<path>.*)$', views.simple),
-
 ]

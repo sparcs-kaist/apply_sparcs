@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-with open("django_key/secret") as django_key:
+with open(os.path.join(BASE_DIR, "django_key/secret")) as django_key:
     SECRET_KEY = django_key.readline().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'apply_sparcs.frontend.urls'
+ROOT_URLCONF = 'apply_sparcs.ui_dev.urls'
 
 TEMPLATES = [
     {
@@ -122,4 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/media/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'frontend/dist'),
+)

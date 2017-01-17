@@ -16,7 +16,7 @@ def simple(request, path, ext=None):
             try:
                 filename = path + '/index.html'
                 res = render(request, filename)
-            except template.TemplateDoesNotExist:
+            except (template.TemplateDoesNotExist, PermissionError):
                 res = render(request, '404.html')
         except template.TemplateDoesNotExist:
             try:
