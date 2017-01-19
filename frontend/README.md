@@ -14,7 +14,7 @@ django 서버 세팅을 모두 마쳤다고 가정하며, js 패키지 매니저
   [15705dba]: http://npmjs.com/ "npmjs"
   [f18c84a1]: http://gulpjs.com/ "gulpjs"
 
-> $ npm install gulp -D
+> $ npm install -g gulp
 
 또한 js dependency를 npm을 통해 설치합니다. 다시한번 말씀드리지만 현재 폴더는 frontend/ 입니다.
 
