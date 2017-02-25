@@ -2,6 +2,9 @@ from django import template
 from django.http import HttpResponse
 from django.shortcuts import render
 import json
+import os
+
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def simple(request, path, ext=None):
     filename = path
@@ -39,22 +42,21 @@ def simple(request, path, ext=None):
 
     if ext == None:
         filename = path
-        print (filename)
         if path == '' or path[-1] == '/':
             filename += 'index'
         context = getContextFromFilename(filename)
-        print (filename)
-        print (context)
+
         try:
             res = render(request, filename + '.html', context)
+
         except template.TemplateDoesNotExist as e:
-            print('except')
             try:
                 filename = path + '/index'
                 context = getContextFromFilename(filename)
                 res = render(request, filename + '.html', context)
             except template.TemplateDoesNotExist:
                 res = render(request, '404.html')
+
     elif ext == 'html':
         filename = path
         context = getContextFromFilename(filename)
@@ -71,13 +73,17 @@ def getContextFromFilename(filename):
     '''
         컨텍스트 파일을 불러온다.
     '''
+    BASE_DIR = ROOT_DIR + '/frontend/web/'
     try:
-        with open(filename + '.context.json') as context_data:
+        with open(BASE_DIR + filename + '.context.json') as context_data:
             context = json.load(context_data)
     except FileNotFoundError as e:
-        # print(e)
+        print('FileNotFoundError')
+        print(e)
         context = {}
     except json.decoder.JSONDecodeError as e:
+        print('DecodeError')
+        print(e)
         context = None
-        # print(e)
+    print(context)
     return context
