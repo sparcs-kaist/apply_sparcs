@@ -20,6 +20,7 @@
     "run-sequence": "^1.2.2",
     "stream-combiner": "^0.2.2"
   },
+  
   "dependencies": {
     "semantic-ui": "^2.2.9"
   }
