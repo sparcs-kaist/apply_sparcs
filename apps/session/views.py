@@ -15,6 +15,7 @@ import random
 sso_client = Client(settings.SSO_ID, settings.SSO_KEY, is_beta=False)
 
 
+'''
 def test_login(request):
     user_list = User.objects.filter(username='1')
     if len(user_list) == 0:
@@ -35,6 +36,7 @@ def test_login(request):
     nexturl = request.session.pop('next', '/')
     print(request.user.is_authenticated)
     return redirect(nexturl)
+'''
 
 # /session/login/
 def login(request):
@@ -58,6 +60,7 @@ def callback(request):
 
     code = request.GET.get('code','')
     user_info = sso_client.get_user_info(code)
+    request.session['user_info'] = user_info
 
     sid = user_info['sid']
     user_list = User.objects.filter(username=sid)

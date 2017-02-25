@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_protect
@@ -7,39 +8,37 @@ from apps.apply.models import Application
 
 
 def submit_home(request):
-    return render(request, 'submit_home.html')
+    application = Application.objects.filter(user = request.user)
+    if len(application) == 0:
+        application = Application.objects.create(user=request.user, semester='SP', year=2017)
+        user_info = request.session.get('user_info',{})
+        kaist_info = user_info.get('kaist_info', {})
+        ku_std_no = kaist_info.get('ku_std_no','')
+        Item.objects.create(application-application, article_name='position', content='')
+        Item.objects.create(application=application, article_name='학과', content='')
+        Item.objects.create(application=application, article_name='학번', content=ku_std_no)
+        Item.objects.create(application=application, article_name='이메일', content=user_info.get('email',''))
+        Item.objects.create(application=application, article_name='성별', content=user_info.get('gender',''))
+        Item.objects.create(application=application, article_name='생년월일', content=user_info.get('birthday',''))
+        Item.objects.create(application=application, article_name='이름', content=user_info.get('last_name','')+user_info.get('first_name',''))
+        Item.objects.create(application=application, article_name='전화번호', content='')
+        Item.objects.create(application=application, article_name='출신고교', content='')
+        Item.objects.create(application=application, article_name='learn', content='')
+        Item.objects.create(application=application, article_name='appeal', content='')
+    content = {}
+    for item in application.item_set.all():
+        content[item.article_name]=item.content
 
-# 각 동아리별 신청버튼을 눌렀을때??에 해당함
-def submit_init(request):
-    cuid = request.GET.get('circle_uid','')
-    circle_uid = Circles.objects.filter(circle_uid=cuid)
-
-    if len(circle_uid) == 0:
-        return HttpResponseForbidden
-    else:
-        year = int(request.GET.get('year',0))
-        semester = request.GET.get('semester','')
-        circle_uid = circle_uid[0]
-        Application.objects.create(user=request.user,
-                                   year=year,
-                                   semester=semester,
-                                   circle_uid=circle_uid)
-
-    return HttpResponse("submit init success??")
+    return render(request, 'apply/index.html',content)
 
 @csrf_protect
 def submit_data(request):
     if request.method == 'POST':
-        cid = request.POST.get('circle_uid', '')
-        num = request.POST.get('num_contents', 0)
-        semester = request.POST.get('semester', '')
-        year = request.POST.get('year',0)
-        contents = []
-        for i in range(int(num)):
-            contents.append(request.POST.get('content-%d' % i, ''))
-
-        print(cid, num, semester, year, contents)
+        application = Application.objects.filter(user = request.user, semester='SP', year='2017')
+        for item in application.item_set.all()
+            item.content = request.POST.get(item.article_name,'')
+            item.save()
+        #TODO: mail sending
     else:
         return HttpResponseForbidden()
 
-    return HttpResponse('%s\n%s\n%s\n%s\n%s' % (cid, num, semester, year, contents))

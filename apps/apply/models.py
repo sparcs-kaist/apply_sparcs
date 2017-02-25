@@ -16,7 +16,7 @@ class Application(models.Model):
     #item_set
 
 class Item(models.Model):
-    application_id = models.ForeignKey('Application', on_delete=models.CASCADE)
+    application = models.ForeignKey('Application', on_delete=models.CASCADE)
     article_name = models.CharField(max_length=256)
     content = models.TextField()
 
