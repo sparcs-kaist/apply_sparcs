@@ -45,6 +45,7 @@ html, body {
   p {
     line-height: 1.4em;
     font-weight: lighter;
+    font-size: 1em;
   }
 
   a {
@@ -64,10 +65,20 @@ html, body {
   color: white;
 
   .content-detail {
+    @media screen and (max-width: 768px) {
+      font-size: 1.2em;
+    }
     font-size: 2.0em;
+    margin-right: 1.0em;
   }
   .content-link {
     display: inline-block;
     margin-bottom: 10px;
+  }
+  .small {
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.7em;
+    }
   }
 }
