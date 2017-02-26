@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2017 SPARCS Register</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+  </head>
+  <body>
+    <div id="root">
+      <header>
+        {% if user.is_authenticated %}
+          <a href="/session/login">Sign out</a>
+        {% else %}
+          <a href="/session/login">Sign in</a>
+        {% endif %}
+      </header>
+      <div class="content">
+        <h3>
+          SPARCS 2017 지원하기<br>
+          2월 26일 중으로 오픈됩니다!
+        </h3>
+        <h1>Register</h1>
+        <p class='content-detail'>
+          NOT OPEN YET
+        </p>
+        {% if user.is_authenticated %}
+          <a href="/apply" class="content-link">APPLY SPARCS 2017</a><br>
+          <a href="https://sparcssso.kaist.ac.kr/account/profile/" class="content-link">CHECK PROFILE</a>
+        {% else %}
+          <a href="https://sparcssso.kaist.ac.kr" class="content-link">SIGN UP SPARCS SSO</a>
+          <p>
+            SPARCS SSO에 회원가입 하시면,<br>
+            SPARCS 지원은 물론 다양한 서비스(otlplus 등)을 이용하실 수 있습니다.
+          </p>
+        {% endif %}
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
