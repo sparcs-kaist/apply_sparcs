@@ -10,7 +10,13 @@
   </head>
   <body>
     <div id="root">
-      
+      <header>
+        {% if user.is_authenticated %}
+          <a href="/session/login">Sign out</a>
+        {% else %}
+          <a href="/session/login">Sign in</a>
+        {% endif %}
+      </header>
       <div class="content">
         <h3>
           SPARCS 2017 지원하기<br>
