@@ -16,7 +16,8 @@
       <p>2017 Spring Recruting</p>
     </div>
     <div class="layout main ui container">
-      <form class="ui form">
+      <form class="ui form" action="/apply/submit" method="POST">
+        {% csrf_token %}
         <h2 class="ui dividing header">
           SPARCS 2017지원에 사용될 정보를 확인해주세요
           <div class="sub header">해당정보는 참고용으로만 사용됩니다.</div>
@@ -27,7 +28,7 @@
               <label>YOUR NAME</label>
             </div>
             <div class="six wide column">
-              <input type="text" name="name" placeholder="Your Name" value="{{ name }}">
+              <input type="text" name="name" placeholder="Your Name" value="{{ name }}" required>
             </div>
           </div>
           <div class="row">
@@ -38,19 +39,19 @@
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="gender" value="m" tabindex="0" {%if gender == 'm'%}checked{% endif %}>
+                    <input type="radio" name="gender" value="m" tabindex="0" {%if gender == 'm'%}checked{% endif %} required>
                     <label>Male</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="gender" value="f" tabindex="0" {%if gender == 'f'%}checked{% endif %}>
+                    <input type="radio" name="gender" value="f" tabindex="0" {%if gender == 'f'%}checked{% endif %} required>
                     <label>Female</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="gender" value="e" tabindex="0" {%if gender != 'm' and gender != 'f'%}checked{% endif %}>
+                    <input type="radio" name="gender" value="e" tabindex="0" {%if gender != 'm' and gender != 'f'%}checked{% endif %} required>
                     <label>ETC</label>
                   </div>
                 </div>
@@ -66,15 +67,15 @@
               <div class="three fields">
                 <div class="field">
                   <label>Year</label>
-                  <input type="text" name="birthYear" maxlength="4" placeholder="Year" value="{{ birthYear }}">
+                  <input type="text" name="birthYear" pattern="[0-9]{4}" maxlength="4" placeholder="Year" value="{{ birthYear }}">
                 </div>
                 <div class="field">
                   <label>Month</label>
-                  <input type="text" name="birthMonth" maxlength="2" placeholder="Year" value="{{ birthMonth }}">
+                  <input type="text" name="birthMonth" pattern="[0-9]{1,2}" maxlength="2" placeholder="Month" value="{{ birthMonth }}">
                 </div>
                 <div class="field">
                   <label>Day</label>
-                  <input type="text" name="birthDay" maxlength="2" placeholder="Year" value="{{ birthDay }}">
+                  <input type="text" name="birthDay" pattern="[0-9]{1,2}"  maxlength="2" placeholder="Day" value="{{ birthDay }}">
                 </div>
               </div>
             </div>
@@ -88,7 +89,7 @@
                 <div class="fields">
                   <div class="field">
                     <label>Student Number</label>
-                    <input type="text" name="studentNumber" placeholder="" value="{{ studentNumber }}">
+                    <input type="text" name="studentNumber" placeholder="" value="{{ studentNumber }}" required>
                   </div>
                 </div>
               </div>
@@ -107,7 +108,7 @@
               <label>CONTACT NUMBER</label>
             </div>
             <div class="six wide column">
-              <input type="text" name="contactNumber" placeholder="" value="{{ contactNumber}}">
+              <input type="text" name="contactNumber" placeholder="" value="{{ contactNumber}}" required>
             </div>
           </div>
           <div class="row">
@@ -115,7 +116,7 @@
               <label>Email</label>
             </div>
             <div class="six wide column">
-              <input type="text" name="email" placeholder="" value="{{ email }}">
+              <input type="text" name="email" placeholder="" value="{{ email }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             </div>
           </div>
         </div>
@@ -139,6 +140,7 @@
                       tabindex="0"
                       value="designer"
                       {%if position == 'designer' %}checked{% endif %}
+                      required
                     >
                     <label>Designer</label>
                   </div>
@@ -151,6 +153,7 @@
                       tabindex="0"
                       value="developer"
                       {%if position == 'developer' %}checked{% endif %}
+                      required
                     >
                     <label>Developer</label>
                   </div>
@@ -164,7 +167,7 @@
               <label>SPARCS에서 하고 싶은 것</label>
             </div>
             <div class="ten wide column">
-              <textarea name="question0" rows="8" cols="80">{{ question0 }}</textarea>
+              <textarea name="question0" rows="8" cols="80" required>{{ question0 }}</textarea>
             </div>
           </div>
           <div class="row">
@@ -172,7 +175,7 @@
               <label>본인을 어필해주세요</label>
             </div>
             <div class="ten wide column">
-              <textarea name="question1" rows="8" cols="80">{{ question1 }}</textarea>
+              <textarea name="question1" rows="8" cols="80" required>{{ question1 }}</textarea>
             </div>
           </div>
         </div>
