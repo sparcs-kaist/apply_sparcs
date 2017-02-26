@@ -12,7 +12,11 @@
     <p>2017 Spring Recruting</p>
   </div>
   <div class="ui container layout main">
+    {% if first %}
     <h2>지원이 완료되었습니다.</h2>
+    {% else %}
+    <h2>지원서가 수정되었습니다</h2>
+    {% endif %}
     <div>
       <a class='link' href="/">메인페이지로 가기</a>
     </div>
