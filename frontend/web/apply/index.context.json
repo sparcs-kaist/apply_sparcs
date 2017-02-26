@@ -1,16 +1,16 @@
 {
-  "user": {
-    "is_authenticated": true,
-    "info": {
-      "studentNumber": 20170000,
-      "department": "무학과",
-      "birthYear": 1998,
-      "birthMonth": 2,
-      "birthDay": 20,
-      "gender": "f",
-      "name": "TAE SOO"
-    }
-  },
+  "studentNumber": 20170000,
+  "department": "무학과",
+  "birthYear": 1998,
+  "birthMonth": 2,
+  "birthDay": 20,
+  "gender": "f",
+  "name": "TAE SOO",
+  "contactNumber": "010-0000-0000",
+  "email": "nanan@agaga.rg",
+  "position": "designer",
+  "question0": "hi",
+  "question1": "hello",
   "interviewDates": [
     {
         "dateTitle": "3 / 7 화요일",
