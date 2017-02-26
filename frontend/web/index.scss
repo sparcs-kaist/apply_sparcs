@@ -2,12 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 @import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
 
-:lang(ko) {
-  font-family: 'Noto Sans KR';
-}
-
 html, body {
-  font-family: 'Noto Sans', sans-serif, arial;
+  font-family: 'Noto Sans', 'Noto Sans KR', sans-serif, arial;
   position: relative;
   width: 100%;
   height: 100%;
