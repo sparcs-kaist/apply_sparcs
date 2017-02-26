@@ -1,4 +1,4 @@
-init = [
+init15 = [
   {
     "dateTitle": "3 / 7 Tuesday",
     "dates": [
@@ -167,6 +167,59 @@ init = [
         "time": "23:45",
         "checked":True
       }
+    ]
+  }
+]
+
+init = [
+  {
+    "dateTitle": "3 / 7 Tuesday",
+    "dates": [
+      {
+        "time": "19:00 ~ 20:00",
+        "checked":True
+      },
+      {
+        "time": "20:00 ~ 21:00",
+        "checked":True
+      },
+      {
+        "time": "21:00 ~ 22:00",
+        "checked":True
+      },
+      {
+        "time": "22:00 ~ 23:00",
+        "checked":True
+      },
+      {
+        "time": "23:00 ~ 24:00",
+        "checked":True
+      },
+    ]
+  },
+  {
+    "dateTitle": "3 / 8 Wednesday",
+    "dates": [
+      {
+        "time": "19:00 ~ 20:00",
+        "checked":True
+      },
+      {
+        "time": "20:00 ~ 21:00",
+        "checked":True
+      },
+      {
+        "time": "21:00 ~ 22:00",
+        "checked":True
+      },
+      {
+        "time": "22:00 ~ 23:00",
+        "checked":True
+      },
+      {
+        "time": "23:00 ~ 24:00",
+        "checked":True
+      },
     ]
   }
 ]
