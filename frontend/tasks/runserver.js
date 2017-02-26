@@ -11,15 +11,15 @@ function runserver(cb) {
     "../manage.py",
     "runserver",
     "--settings=apply_sparcs.ui_dev.settings"
-  ]);
+  ], {stdio: 'inherit' });
 
-  run.stdout.on('data', (data) => {
-    console.log(`stdout: ${data}`);
-  });
-
-  run.stderr.on('data', (data) => {
-    console.log(`django log: ${data}`);
-  });
+  // run.stdout.on('data', (data) => {
+  //   console.log(`stdout: ${data}`);
+  // });
+  //
+  // run.stderr.on('data', (data) => {
+  //   console.log(`django log: ${data}`);
+  // });
 
   run.on('close', (code) => {
     console.log(`child process exited with code ${code}`);

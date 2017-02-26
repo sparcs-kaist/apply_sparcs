@@ -1,0 +1,186 @@
+{
+  "user": {
+    "is_authenticated": true,
+    "info": {
+      "studentNumber": 20170000,
+      "department": "무학과",
+      "birthYear": 1998,
+      "birthMonth": 2,
+      "birthDay": 20,
+      "gender": "f",
+      "name": "TAE SOO"
+    }
+  },
+  "interviewDates": [
+    {
+        "dateTitle": "3 / 7 화요일",
+        "dates": [
+          {
+            "time": "19:00",
+            "checked":true
+          },
+          {
+            "time": "19:15",
+            "checked":true
+          },
+          {
+            "time": "19:30",
+            "checked":true
+          },
+          {
+            "time": "19:45",
+            "checked":true
+          },
+          {
+            "time": "20:00",
+            "checked":true
+          },
+          {
+            "time": "20:15",
+            "checked":true
+          },
+          {
+            "time": "20:30",
+            "checked":true
+          },
+          {
+            "time": "20:45",
+            "checked":true
+          },
+          {
+            "time": "21:00",
+            "checked":true
+          },
+          {
+            "time": "21:15",
+            "checked":true
+          },
+          {
+            "time": "21:30",
+            "checked":true
+          },
+          {
+            "time": "21:45",
+            "checked":true
+          },
+          {
+            "time": "22:00",
+            "checked":true
+          },
+          {
+            "time": "22:15",
+            "checked":true
+          },
+          {
+            "time": "22:30",
+            "checked":true
+          },
+          {
+            "time": "22:45",
+            "checked":true
+          },
+          {
+            "time": "23:00",
+            "checked":true
+          },
+          {
+            "time": "23:15",
+            "checked":true
+          },
+          {
+            "time": "23:30",
+            "checked":true
+          },
+          {
+            "time": "23:45",
+            "checked":true
+          }
+        ]
+    },
+    {
+        "dateTitle": "3 / 8 수요일",
+        "dates": [
+          {
+            "time": "19:00",
+            "checked":true
+          },
+          {
+            "time": "19:15",
+            "checked":true
+          },
+          {
+            "time": "19:30",
+            "checked":true
+          },
+          {
+            "time": "19:45",
+            "checked":true
+          },
+          {
+            "time": "20:00",
+            "checked":true
+          },
+          {
+            "time": "20:15",
+            "checked":true
+          },
+          {
+            "time": "20:30",
+            "checked":true
+          },
+          {
+            "time": "20:45",
+            "checked":true
+          },
+          {
+            "time": "21:00",
+            "checked":true
+          },
+          {
+            "time": "21:15",
+            "checked":true
+          },
+          {
+            "time": "21:30",
+            "checked":true
+          },
+          {
+            "time": "21:45",
+            "checked":true
+          },
+          {
+            "time": "22:00",
+            "checked":true
+          },
+          {
+            "time": "22:15",
+            "checked":true
+          },
+          {
+            "time": "22:30",
+            "checked":true
+          },
+          {
+            "time": "22:45",
+            "checked":true
+          },
+          {
+            "time": "23:00",
+            "checked":true
+          },
+          {
+            "time": "23:15",
+            "checked":true
+          },
+          {
+            "time": "23:30",
+            "checked":true
+          },
+          {
+            "time": "23:45",
+            "checked":true
+          }
+        ]
+    }
+  ]
+}
