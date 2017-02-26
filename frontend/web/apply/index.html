@@ -1,35 +1,200 @@
 {% extends './_layouts/default.html' %}
 
 {% block link %}
-  <link rel="stylesheet" href="/static/css/apply/apply.css">
+  <link rel="stylesheet" href="/static/css/apply/index.css">
   <link rel="stylesheet" href="/static/semantic/semantic.min.css">
 {% endblock %}
 
 {% block body %}
-  <div id="root" class='ui container'>
-    <h2 class="ui dividing header">Site</h2>
-    <div class="ui grid">
-      <div class="four wide column">hey</div>
-      <div class="twelve wide column"></div>
+  <div id="root">
+    <div class="layout header">
+      <h1>SPARCS</h1>
+      <p>2017 Spring Recruting</p>
     </div>
-    <form class="ui form">
-      <h3 class="ui dividing header">User Info</h3>
-      <div class="field">
-        <label id="school-id">학번</label>
-        <div class="two fields">
-          <div class="field">
-            <select class="ui fluid dropdown">
-              <option value="">선택</option>
-              <option value="학사">학사</option>
-              <option value="석사">석사</option>
-              <option value="박사">박사</option>
-            </select>
+    <div class="layout main ui container">
+      <form class="ui form">
+        <h2 class="ui dividing header">
+          SPARCS 2017지원에 사용될 정보를 확인해주세요
+          <div class="sub header">해당정보는 참고용으로만 사용됩니다.</div>
+        </h2>
+        <div class="ui grid">
+          <div class="row">
+            <div class="six wide column">
+              <label>YOUR NAME</label>
+            </div>
+            <div class="six wide column">
+              <input type="text" name="name" placeholder="Your Name" value="{{ user.info.name }}">
+            </div>
           </div>
-          <div class="field">
-            <input type="text" name="shipping[last-name]" placeholder="학번">
+          <div class="row">
+            <div class="six wide column">
+              <label>YOUR GENDER</label>
+            </div>
+            <div class="six wide column">
+              <div class="inline fields">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="gender" tabindex="0" {%if user.info.gender == 'm'%}checked{% endif %}>
+                    <label>Male</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="gender" tabindex="0" {%if user.info.gender == 'f'%}checked{% endif %}>
+                    <label>Female</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="gender" tabindex="0" {%if user.info.gender != 'm' and user.info.gender != 'f'%}checked{% endif %}>
+                    <label>ETC</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="six wide column">
+              <label>YOUR BIRTHDAY</label>
+            </div>
+            <div class="six wide column">
+              <div class="three fields">
+                <div class="field">
+                  <label>Year</label>
+                  <input type="text" name="birthYear" maxlength="4" placeholder="Year" value="{{birthYear}}">
+                </div>
+                <div class="field">
+                  <label>Month</label>
+                  <input type="text" name="birthMonth" maxlength="2" placeholder="Year" value="{{birthMonth}}">
+                </div>
+                <div class="field">
+                  <label>Day</label>
+                  <input type="text" name="birthDay" maxlength="2" placeholder="Year" value="{{birthDay}}">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="six wide column">
+              <label>KAIST INFORMATION</label>
+            </div>
+            <div class="six wide column">
+              <div class="row">
+                <div class="fields">
+                  <div class="field">
+                    <label>Student Number</label>
+                    <input type="text" name="studentNumber" placeholder="" value="{{ user.info.studentNumber }}">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="fields">
+                  <div class="field">
+                    <label>Department</label>
+                    <input type="text" name="department" placeholder="" value="{{ user.info.department }}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="six wide column">
+              <label>CONTACT NUMBER</label>
+            </div>
+            <div class="six wide column">
+              <input type="text" name="contactNumber" placeholder="">
+            </div>
           </div>
         </div>
-      </div>
-    </form>
+
+        <h2 class="ui dividing header">
+          추가적으로 자기를 소개해주세요!
+          <div class="sub header">해당 정보는 면접 시 사용됩니다.</div>
+        </h2>
+        <div class="ui grid">
+          <div class="row">
+            <div class="six wide column">
+              <label>POSITION</label>
+            </div>
+            <div class="six wide column">
+              <div class="inline fields">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="position" tabindex="0">
+                    <label>Designer</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="position" tabindex="0">
+                    <label>Developer</label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="six wide column">
+              <label>SPARCS에서 하고 싶은 것</label>
+            </div>
+            <div class="ten wide column">
+              <textarea name="question[0]" rows="8" cols="80"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="six wide column">
+              <label>본인을 어필해주세요</label>
+            </div>
+            <div class="ten wide column">
+              <textarea name="question[1]" rows="8" cols="80"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="ui dividing header">
+          가능한 면접시간이 언제인가요?
+          <div class="sub header">면접 시간 확정 후 개별적으로 연락드리겠습니다.</div>
+        </h2>
+
+        <div class="ui two column grid">
+          {% for interviewDate in interviewDates %}
+          <div class="column">
+            <div class="ui grid">
+              <div class="four wide column">
+                시간
+              </div>
+              <div class="twelve wide column">
+                {{ interviewDate.dateTitle }}
+              </div>
+              {% for date in interviewDate.dates %}
+              <div class="row">
+                <div class="four wide column">
+                  {{ date.time }}
+                </div>
+                <div class="twelve wide column">
+                  <input type="checkbox" name="interviewDate{{forloop.parentloop.counter0}}" value="{{forloop.parentloop.counter0}}-{{forloop.counter0}}">
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+        <div class="ui divider"></div>
+        <footer>
+          <button class='ui button' type="submit">
+            {% if first %}
+              Submit
+            {% else %}
+              Update
+            {% endif %}
+          </button>
+        </footer>
+      </form>
+    </div>
   </div>
 {% endblock %}
