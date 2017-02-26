@@ -34,19 +34,19 @@
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="gender" tabindex="0" {%if user.info.gender == 'm'%}checked{% endif %}>
+                    <input type="radio" name="gender" value="m" tabindex="0" {%if user.info.gender == 'm'%}checked{% endif %}>
                     <label>Male</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="gender" tabindex="0" {%if user.info.gender == 'f'%}checked{% endif %}>
+                    <input type="radio" name="gender" value="f" tabindex="0" {%if user.info.gender == 'f'%}checked{% endif %}>
                     <label>Female</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="gender" tabindex="0" {%if user.info.gender != 'm' and user.info.gender != 'f'%}checked{% endif %}>
+                    <input type="radio" name="gender" value="e" tabindex="0" {%if user.info.gender != 'm' and user.info.gender != 'f'%}checked{% endif %}>
                     <label>ETC</label>
                   </div>
                 </div>
@@ -174,7 +174,14 @@
                   {{ date.time }}
                 </div>
                 <div class="twelve wide column">
-                  <input type="checkbox" name="interviewDate{{forloop.parentloop.counter0}}" value="{{forloop.parentloop.counter0}}-{{forloop.counter0}}">
+                  <input
+                    type="checkbox"
+                    name="interviewDate{{forloop.parentloop.counter0}}"
+                    value="{{forloop.parentloop.counter0}}-{{forloop.counter0}}"
+                    {% if date.checked %}
+                      checked
+                    {% endif %}
+                  >
                 </div>
               </div>
               {% endfor %}
