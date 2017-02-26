@@ -2,7 +2,7 @@ const path = require('path');
 
 const config = {
   'src': 'web',
-  'dest': 'dist'
+  'dest': 'static/dist'
 }
 
 config['sass'] = {
