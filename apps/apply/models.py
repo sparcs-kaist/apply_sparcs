@@ -12,7 +12,7 @@ class Application(models.Model):
     user = models.ForeignKey('session.UserProfile', on_delete=models.CASCADE)
     year = models.IntegerField()
     semester = models.CharField(max_length=2, choices=SEMESTER_IN_APPLY)
-    circle_uid = models.ForeignKey(Circles)
+    #circle_uid = models.ForeignKey(Circles)
     #item_set
 
 class Item(models.Model):
